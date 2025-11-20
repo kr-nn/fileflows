@@ -13,7 +13,7 @@
   in {
 
     nixosModules.default = self.nixosModules.fileflows;
-    nixosModules.fileflows = import ./fileflows.nix { inherit pkgs; lib = pkgs.lib; fileflowPkg = self.packages.x86_64-linux.fileflows; };
+    nixosModules.fileflows = import ./fileflows.nix { inherit pkgs; config = pkgs.config; lib = pkgs.lib; fileflowPkg = self.packages.x86_64-linux.fileflows; };
 
     packages.x86_64-linux.default = self.packages.x86_64-linux.fileflows;
     packages.x86_64-linux.fileflows = pkgs.stdenv.mkDerivation rec {
