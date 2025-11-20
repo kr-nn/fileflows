@@ -12,8 +12,10 @@
     runserver = ''dotnet $out/share/Server/FileFlows.Server.dll \$\@'';
   in {
 
-    packages.x86_64-linux.default = self.packages.x86_64-linux.fileflows;
+    nixosModules.default = self.nixosModules.fileflows;
+    nixosModules.fileflows = import ./fileflows.nix { fileflowPkg = self.packages.x86_64-linux.fileflows; };
 
+    packages.x86_64-linux.default = self.packages.x86_64-linux.fileflows;
     packages.x86_64-linux.fileflows = pkgs.stdenv.mkDerivation rec {
 
       pname = "fileflows";
