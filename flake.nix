@@ -40,7 +40,6 @@
         echo ${runserver} > $out/share/run-server.sh
         chmod +x $out/share/run-server.sh
         makeWrapper $out/share/run-server.sh $out/bin/fileflows \
-          --chdir $out/share/Server \
           --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.dotnet-sdk_8 ]} \
           --prefix LD_LIBRARY_PATH : ${pkgs.lib.makeLibraryPath [ pkgs.webkitgtk_4_1 pkgs.zlib ]}
 
