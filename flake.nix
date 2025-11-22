@@ -9,7 +9,7 @@
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
-    runserver = ''dotnet $out/share/Server/FileFlows.Server.dll \$\@'';
+    runserver = ''dotnet /var/lib/fileflows/share/Server/FileFlows.Server.dll \$\@'';
   in {
 
     nixosModules.default = self.nixosModules.fileflows;
